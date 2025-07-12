@@ -1,0 +1,17 @@
+project_name: domainify
+builds:
+  - main: ./cmd/domainify/main.go
+    ldflags:
+      - -s -w
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+
+release:
+  github:
+    owner: x-stp
+    name: domainify
